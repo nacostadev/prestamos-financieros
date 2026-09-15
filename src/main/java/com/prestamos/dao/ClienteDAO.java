@@ -1,19 +1,19 @@
 package com.prestamos.dao;
 
-import com.prestamos.model.cliente.Cliente;
+import com.prestamos.model.cliente.Clientes;
 import java.util.List;
 
 public interface ClienteDAO {
 
-    List<Cliente> listar();
+    List<Clientes> listar();
 
-    Cliente buscarPorId(int id);
+    Clientes buscarPorId(int id);
 
-    Cliente buscarPorDocumento(String numeroDocumento);
+    Clientes buscarPorDocumento(String numeroDocumento);
 
-    void guardar(Cliente cliente);
+    void guardar(Clientes cliente);
 
-    void actualizar(Cliente cliente);
+    void actualizar(Clientes cliente);
 
     void desactivar(int id);
 }
