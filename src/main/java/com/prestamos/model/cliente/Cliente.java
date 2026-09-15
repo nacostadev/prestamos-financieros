@@ -1,4 +1,4 @@
-package com.prestamos.model;
+package com.prestamos.model.cliente;
 
 public class Cliente {
     private int id;

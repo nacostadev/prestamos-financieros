@@ -1,6 +1,6 @@
 package com.prestamos.dao;
 
-import com.prestamos.model.Cliente;
+import com.prestamos.model.cliente.Cliente;
 import java.util.List;
 
 public interface ClienteDAO {
