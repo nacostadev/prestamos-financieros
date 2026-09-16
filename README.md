@@ -321,3 +321,10 @@ Aquí se incluirán:
 **En desarrollo 🚧**
 
 Este proyecto se encuentra en etapa inicial de planificación y desarrollo.
+
+
+⚠️ Importante:
+- El archivo ConexionBD.java está ignorado en Git.
+- Usa el archivo de ejemplo en src/main/java/com/prestamos/config/conexionbd/Example.java
+- Copia ese archivo y renómbralo a ConexionBD.java en tu máquina.
+- Edita los parámetros con tu configuración local (servidor, puerto, etc).
