@@ -11,17 +11,27 @@ import java.sql.SQLException;
 
 public class UsuariosDAOImpl implements UsuariosDAO {
 
-    private static final String CLAVE_ENCRIPTACION = "ClaveUsuarios";
+        private static final String CLAVE_ENCRIPTACION = "ClaveUsuarios";
+        private static final String COLUMNAS_USUARIO = "UsuariosCodigo, UsuariosNombre, "
+            + "UsuariosEstado, AnalistasCodigo";
 
     @Override
     public Usuarios buscarPorNombre(String usuariosNombre) throws SQLException {
-        String sql = "SELECT UsuariosCodigo, UsuariosNombre, UsuariosEstado, AnalistasCodigo "
-                   + "FROM Seguridad.Usuarios WHERE UsuariosNombre = ?";
+        return buscarPorUsername(usuariosNombre);
+    }
+
+    @Override
+    public Usuarios buscarPorUsername(String username) throws SQLException {
+        String sql = "SELECT " + COLUMNAS_USUARIO + " FROM Seguridad.Usuarios WHERE UsuariosNombre = ?";
+        return buscar(sql, username);
+    }
+
+    private Usuarios buscar(String sql, String value) throws SQLException {
 
         try (Connection cn = ConexionBD.getConexion();
              PreparedStatement ps = cn.prepareStatement(sql)) {
 
-            ps.setString(1, usuariosNombre);
+            ps.setString(1, value);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     Usuarios u = new Usuarios();
@@ -38,24 +48,18 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 
     @Override
     public boolean validarCredenciales(String usuariosNombre, String contrasenia) throws SQLException {
-        String sql = "SELECT CONVERT(NVARCHAR(100), DecryptByPassPhrase(?, UsuariosContrasenia)) AS ContraseniaReal "
-                   + "FROM Seguridad.Usuarios "
-                   + "WHERE UsuariosNombre = ? AND UsuariosEstado = 'A'";
-
+        String sql = "SELECT 1 FROM Seguridad.Usuarios "
+                + "WHERE UsuariosNombre = ? AND UsuariosEstado = 'A' "
+                + "AND CONVERT(NVARCHAR(100), DecryptByPassPhrase(?, UsuariosContrasenia)) = ?";
         try (Connection cn = ConexionBD.getConexion();
              PreparedStatement ps = cn.prepareStatement(sql)) {
-
-            ps.setString(1, CLAVE_ENCRIPTACION);
-            ps.setString(2, usuariosNombre);
-
+            ps.setString(1, usuariosNombre);
+            ps.setString(2, CLAVE_ENCRIPTACION);
+            ps.setString(3, contrasenia);
             try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    String contraseniaReal = rs.getString("ContraseniaReal");
-                    return contraseniaReal != null && contraseniaReal.equals(contrasenia);
-                }
+                return rs.next();
             }
         }
-        return false;
     }
 
     @Override

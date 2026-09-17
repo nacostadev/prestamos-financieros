@@ -7,6 +7,8 @@ public interface UsuariosDAO {
 
     Usuarios buscarPorNombre(String usuariosNombre) throws SQLException;
 
+    Usuarios buscarPorUsername(String username) throws SQLException;
+
     boolean validarCredenciales(String usuariosNombre, String contrasenia) throws SQLException;
 
     boolean esAnalistaCreditoActivo(String analistasCodigo) throws SQLException;
