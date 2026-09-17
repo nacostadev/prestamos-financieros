@@ -3,6 +3,7 @@ package com.prestamos.model.cliente;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Clientes {
 
@@ -26,6 +27,8 @@ public class Clientes {
     private String analistasCodigoModifica;
     private LocalDateTime clientesFechaRegistro;
     private LocalDateTime clientesFechaActualizacion;
+    private Conyuges conyuge;
+    private List<ReferenciasPersonales> referencias;
 
     public Clientes() {
     }
@@ -227,5 +230,20 @@ public class Clientes {
 
     public void setClientesFechaActualizacion(LocalDateTime clientesFechaActualizacion) {
         this.clientesFechaActualizacion = clientesFechaActualizacion;
+    }
+        public Conyuges getConyuge() {
+        return conyuge;
+    }
+
+    public void setConyuge(Conyuges conyuge) {
+        this.conyuge = conyuge;
+    }
+
+    public List<ReferenciasPersonales> getReferencias() {
+        return referencias;
+    }
+
+    public void setReferencias(List<ReferenciasPersonales> referencias) {
+        this.referencias = referencias;
     }
 }
