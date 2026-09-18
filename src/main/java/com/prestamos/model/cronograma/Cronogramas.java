@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.prestamos.model.cronograma;
 
 import java.math.BigDecimal;
@@ -82,27 +81,5 @@ public class Cronogramas {
     public void setDetalle(List<DetalleCronograma> detalle) {
         this.detalle = detalle;
     }
-}
-=======
-package com.prestamos.model.cronograma;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-
-public class Cronogramas {
-
-    private String cronogramasCodigo;
-    private String prestamosCodigo;
-    private BigDecimal cronogramasTEM;
-    private BigDecimal cronogramasCuotaFija;
-    private String cronogramasEstado;
-    private String analistasCodigoGenera;
-    private LocalDateTime cronogramasFechaGeneracion;
-
-    public Cronogramas() {
+    
     }
-
-    // getters y setters
-}
-
->>>>>>> 276ab116a50ebe94c66db659cb6e1e84ab77c7ee
