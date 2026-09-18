@@ -1,19 +1,27 @@
 package com.prestamos.dao;
 
 import com.prestamos.model.cliente.Clientes;
+import com.prestamos.model.cliente.Conyuges;
+import com.prestamos.model.cliente.ReferenciasPersonales;
+
+import java.sql.SQLException;
 import java.util.List;
 
 public interface ClienteDAO {
 
-    List<Clientes> listar();
+    String insertar(Clientes cliente) throws SQLException;
 
-    Clientes buscarPorId(int id);
+    void actualizar(Clientes cliente) throws SQLException;
 
-    Clientes buscarPorDocumento(String numeroDocumento);
+    void desactivar(String clientesCodigo, String analistasCodigo, String motivo) throws SQLException;
 
-    void guardar(Clientes cliente);
+    List<Clientes> listar(String estado) throws SQLException;
 
-    void actualizar(Clientes cliente);
+    Clientes obtenerPorCodigo(String clientesCodigo) throws SQLException;
 
-    void desactivar(int id);
+    void guardarConyuge(Conyuges conyuge) throws SQLException;
+
+    String insertarReferenciaPersonal(ReferenciasPersonales referencia) throws SQLException;
+
+    void desactivarReferenciaPersonal(String referenciasPersonalesCodigo) throws SQLException;
 }
