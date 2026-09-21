@@ -6,64 +6,180 @@ import java.time.LocalDateTime;
 
 public class Prestamos {
 
+    // =========================================================
+    // ATRIBUTOS
+    // =========================================================
     private String prestamosCodigo;
     private String clientesCodigo;
     private String analistasCodigo;
+
+    private String tiposPrestamoCodigo;
     private BigDecimal prestamosMontoSolicitado;
+    private int prestamosPlazoCuotas;
+    private BigDecimal prestamosTEA;
+    private String modalidadesPagoCodigo;
+    private LocalDate prestamosFechaDesembolso;
+    private String monedasCodigo;
+    private String garantiasCodigo;
+    private String prestamosObservaciones;
+    private String prestamosDescripcionDestino;
+
     private BigDecimal prestamosMontoAprobado;
     private BigDecimal prestamosTasaInteres;
     private int prestamosPlazoMeses;
-    private LocalDate prestamosFechaDesembolso;
     private String prestamosEstado;
     private LocalDateTime prestamosFechaRegistro;
 
+    // =========================================================
+    // CONSTRUCTOR
+    // =========================================================
     public Prestamos() {
     }
 
-    public Prestamos(String prestamosCodigo, String clientesCodigo, String analistasCodigo, 
-                     BigDecimal prestamosMontoSolicitado, BigDecimal prestamosMontoAprobado, 
-                     BigDecimal prestamosTasaInteres, int prestamosPlazoMeses, 
-                     LocalDate prestamosFechaDesembolso, String prestamosEstado, 
-                     LocalDateTime prestamosFechaRegistro) {
-        this.prestamosCodigo = prestamosCodigo;
-        this.clientesCodigo = clientesCodigo;
-        this.analistasCodigo = analistasCodigo;
-        this.prestamosMontoSolicitado = prestamosMontoSolicitado;
-        this.prestamosMontoAprobado = prestamosMontoAprobado;
-        this.prestamosTasaInteres = prestamosTasaInteres;
-        this.prestamosPlazoMeses = prestamosPlazoMeses;
-        this.prestamosFechaDesembolso = prestamosFechaDesembolso;
-        this.prestamosEstado = prestamosEstado;
-        this.prestamosFechaRegistro = prestamosFechaRegistro;
+    // =========================================================
+    // GETTERS Y SETTERS
+    // =========================================================
+    public String getPrestamosCodigo() {
+        return prestamosCodigo;
     }
 
-    public String getPrestamosCodigo() { return prestamosCodigo; }
-    public void setPrestamosCodigo(String prestamosCodigo) { this.prestamosCodigo = prestamosCodigo; }
+    public void setPrestamosCodigo(String prestamosCodigo) {
+        this.prestamosCodigo = prestamosCodigo;
+    }
 
-    public String getClientesCodigo() { return clientesCodigo; }
-    public void setClientesCodigo(String clientesCodigo) { this.clientesCodigo = clientesCodigo; }
+    public String getClientesCodigo() {
+        return clientesCodigo;
+    }
 
-    public String getAnalistasCodigo() { return analistasCodigo; }
-    public void setAnalistasCodigo(String analistasCodigo) { this.analistasCodigo = analistasCodigo; }
+    public void setClientesCodigo(String clientesCodigo) {
+        this.clientesCodigo = clientesCodigo;
+    }
 
-    public BigDecimal getPrestamosMontoSolicitado() { return prestamosMontoSolicitado; }
-    public void setPrestamosMontoSolicitado(BigDecimal prestamosMontoSolicitado) { this.prestamosMontoSolicitado = prestamosMontoSolicitado; }
+    public String getAnalistasCodigo() {
+        return analistasCodigo;
+    }
 
-    public BigDecimal getPrestamosMontoAprobado() { return prestamosMontoAprobado; }
-    public void setPrestamosMontoAprobado(BigDecimal prestamosMontoAprobado) { this.prestamosMontoAprobado = prestamosMontoAprobado; }
+    public void setAnalistasCodigo(String analistasCodigo) {
+        this.analistasCodigo = analistasCodigo;
+    }
 
-    public BigDecimal getPrestamosTasaInteres() { return prestamosTasaInteres; }
-    public void setPrestamosTasaInteres(BigDecimal prestamosTasaInteres) { this.prestamosTasaInteres = prestamosTasaInteres; }
+    public String getTiposPrestamoCodigo() {
+        return tiposPrestamoCodigo;
+    }
 
-    public int getPrestamosPlazoMeses() { return prestamosPlazoMeses; }
-    public void setPrestamosPlazoMeses(int prestamosPlazoMeses) { this.prestamosPlazoMeses = prestamosPlazoMeses; }
+    public void setTiposPrestamoCodigo(String tiposPrestamoCodigo) {
+        this.tiposPrestamoCodigo = tiposPrestamoCodigo;
+    }
 
-    public LocalDate getPrestamosFechaDesembolso() { return prestamosFechaDesembolso; }
-    public void setPrestamosFechaDesembolso(LocalDate prestamosFechaDesembolso) { this.prestamosFechaDesembolso = prestamosFechaDesembolso; }
+    public BigDecimal getPrestamosMontoSolicitado() {
+        return prestamosMontoSolicitado;
+    }
 
-    public String getPrestamosEstado() { return prestamosEstado; }
-    public void setPrestamosEstado(String prestamosEstado) { this.prestamosEstado = prestamosEstado; }
+    public void setPrestamosMontoSolicitado(BigDecimal prestamosMontoSolicitado) {
+        this.prestamosMontoSolicitado = prestamosMontoSolicitado;
+    }
 
-    public LocalDateTime getPrestamosFechaRegistro() { return prestamosFechaRegistro; }
-    public void setPrestamosFechaRegistro(LocalDateTime prestamosFechaRegistro) { this.prestamosFechaRegistro = prestamosFechaRegistro; }
+    public int getPrestamosPlazoCuotas() {
+        return prestamosPlazoCuotas;
+    }
+
+    public void setPrestamosPlazoCuotas(int prestamosPlazoCuotas) {
+        this.prestamosPlazoCuotas = prestamosPlazoCuotas;
+    }
+
+    public BigDecimal getPrestamosTEA() {
+        return prestamosTEA;
+    }
+
+    public void setPrestamosTEA(BigDecimal prestamosTEA) {
+        this.prestamosTEA = prestamosTEA;
+    }
+
+    public String getModalidadesPagoCodigo() {
+        return modalidadesPagoCodigo;
+    }
+
+    public void setModalidadesPagoCodigo(String modalidadesPagoCodigo) {
+        this.modalidadesPagoCodigo = modalidadesPagoCodigo;
+    }
+
+    public LocalDate getPrestamosFechaDesembolso() {
+        return prestamosFechaDesembolso;
+    }
+
+    public void setPrestamosFechaDesembolso(LocalDate prestamosFechaDesembolso) {
+        this.prestamosFechaDesembolso = prestamosFechaDesembolso;
+    }
+
+    public String getMonedasCodigo() {
+        return monedasCodigo;
+    }
+
+    public void setMonedasCodigo(String monedasCodigo) {
+        this.monedasCodigo = monedasCodigo;
+    }
+
+    public String getGarantiasCodigo() {
+        return garantiasCodigo;
+    }
+
+    public void setGarantiasCodigo(String garantiasCodigo) {
+        this.garantiasCodigo = garantiasCodigo;
+    }
+
+    public String getPrestamosObservaciones() {
+        return prestamosObservaciones;
+    }
+
+    public void setPrestamosObservaciones(String prestamosObservaciones) {
+        this.prestamosObservaciones = prestamosObservaciones;
+    }
+
+    public String getPrestamosDescripcionDestino() {
+        return prestamosDescripcionDestino;
+    }
+
+    public void setPrestamosDescripcionDestino(String prestamosDescripcionDestino) {
+        this.prestamosDescripcionDestino = prestamosDescripcionDestino;
+    }
+
+    public BigDecimal getPrestamosMontoAprobado() {
+        return prestamosMontoAprobado;
+    }
+
+    public void setPrestamosMontoAprobado(BigDecimal prestamosMontoAprobado) {
+        this.prestamosMontoAprobado = prestamosMontoAprobado;
+    }
+
+    public BigDecimal getPrestamosTasaInteres() {
+        return prestamosTasaInteres;
+    }
+
+    public void setPrestamosTasaInteres(BigDecimal prestamosTasaInteres) {
+        this.prestamosTasaInteres = prestamosTasaInteres;
+    }
+
+    public int getPrestamosPlazoMeses() {
+        return prestamosPlazoMeses;
+    }
+
+    public void setPrestamosPlazoMeses(int prestamosPlazoMeses) {
+        this.prestamosPlazoMeses = prestamosPlazoMeses;
+    }
+
+    public String getPrestamosEstado() {
+        return prestamosEstado;
+    }
+
+    public void setPrestamosEstado(String prestamosEstado) {
+        this.prestamosEstado = prestamosEstado;
+    }
+
+    public LocalDateTime getPrestamosFechaRegistro() {
+        return prestamosFechaRegistro;
+    }
+
+    public void setPrestamosFechaRegistro(LocalDateTime prestamosFechaRegistro) {
+        this.prestamosFechaRegistro = prestamosFechaRegistro;
+    }
 }
