@@ -2,7 +2,6 @@ package com.prestamos.dao.impl;
 
 import com.prestamos.config.ConexionBD;
 import com.prestamos.dao.CronogramaDAO;
-
 import com.prestamos.model.cronograma.Cronogramas;
 import com.prestamos.model.cronograma.DetalleCronograma;
 
