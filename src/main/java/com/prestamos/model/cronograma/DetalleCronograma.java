@@ -18,6 +18,27 @@ public class DetalleCronograma {
     public DetalleCronograma() {
     }
 
+    public DetalleCronograma(String detalleCronogramaCodigo,
+                             String cronogramasCodigo,
+                             int detalleNumeroCuota,
+                             LocalDate detalleFechaVencimiento,
+                             BigDecimal detalleSaldoAnterior,
+                             BigDecimal detalleInteres,
+                             BigDecimal detalleAmortizacion,
+                             BigDecimal detalleCuota,
+                             BigDecimal detalleSaldoPendiente) {
+
+        this.detalleCronogramaCodigo = detalleCronogramaCodigo;
+        this.cronogramasCodigo = cronogramasCodigo;
+        this.detalleNumeroCuota = detalleNumeroCuota;
+        this.detalleFechaVencimiento = detalleFechaVencimiento;
+        this.detalleSaldoAnterior = detalleSaldoAnterior;
+        this.detalleInteres = detalleInteres;
+        this.detalleAmortizacion = detalleAmortizacion;
+        this.detalleCuota = detalleCuota;
+        this.detalleSaldoPendiente = detalleSaldoPendiente;
+    }
+
     public String getDetalleCronogramaCodigo() {
         return detalleCronogramaCodigo;
     }

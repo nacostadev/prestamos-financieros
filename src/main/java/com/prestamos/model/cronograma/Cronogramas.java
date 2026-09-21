@@ -18,6 +18,23 @@ public class Cronogramas {
     public Cronogramas() {
     }
 
+    public Cronogramas(String cronogramasCodigo,
+                       String prestamosCodigo,
+                       BigDecimal cronogramasTEM,
+                       BigDecimal cronogramasCuotaFija,
+                       String cronogramasEstado,
+                       String analistasCodigoGenera,
+                       LocalDateTime cronogramasFechaGeneracion) {
+
+        this.cronogramasCodigo = cronogramasCodigo;
+        this.prestamosCodigo = prestamosCodigo;
+        this.cronogramasTEM = cronogramasTEM;
+        this.cronogramasCuotaFija = cronogramasCuotaFija;
+        this.cronogramasEstado = cronogramasEstado;
+        this.analistasCodigoGenera = analistasCodigoGenera;
+        this.cronogramasFechaGeneracion = cronogramasFechaGeneracion;
+    }
+
     public String getCronogramasCodigo() {
         return cronogramasCodigo;
     }
@@ -81,5 +98,4 @@ public class Cronogramas {
     public void setDetalle(List<DetalleCronograma> detalle) {
         this.detalle = detalle;
     }
-    
-    }
+}
