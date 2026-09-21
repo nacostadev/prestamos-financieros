@@ -1,13 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.prestamos.dao;
+
+import com.prestamos.model.prestamo.Prestamos;
 
 /**
  *
  * @author LENOVO
  */
-public class PrestamosDAO {
-    
+public interface PrestamosDAO {
+
+    String registrar(Prestamos prestamo);
+
 }
