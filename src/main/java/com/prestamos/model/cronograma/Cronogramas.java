@@ -2,6 +2,8 @@ package com.prestamos.model.cronograma;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Cronogramas {
@@ -13,7 +15,7 @@ public class Cronogramas {
     private String cronogramasEstado;
     private String analistasCodigoGenera;
     private LocalDateTime cronogramasFechaGeneracion;
-    private List<DetalleCronograma> detalle;
+    private List<DetalleCronograma> detalle = new ArrayList<>();
 
     public Cronogramas() {
     }
@@ -25,7 +27,6 @@ public class Cronogramas {
                        String cronogramasEstado,
                        String analistasCodigoGenera,
                        LocalDateTime cronogramasFechaGeneracion) {
-
         this.cronogramasCodigo = cronogramasCodigo;
         this.prestamosCodigo = prestamosCodigo;
         this.cronogramasTEM = cronogramasTEM;
@@ -92,10 +93,16 @@ public class Cronogramas {
     }
 
     public List<DetalleCronograma> getDetalle() {
-        return detalle;
+        return detalle != null ? Collections.unmodifiableList(detalle) : Collections.emptyList();
     }
 
     public void setDetalle(List<DetalleCronograma> detalle) {
-        this.detalle = detalle;
+        this.detalle = (detalle != null) ? new ArrayList<>(detalle) : new ArrayList<>();
+    }
+
+    public void agregarDetalle(DetalleCronograma item) {
+        if (item != null) {
+            this.detalle.add(item);
+        }
     }
 }
