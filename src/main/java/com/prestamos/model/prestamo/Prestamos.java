@@ -6,9 +6,6 @@ import java.time.LocalDateTime;
 
 public class Prestamos {
 
-    // =========================================================
-    // ATRIBUTOS
-    // =========================================================
     private String prestamosCodigo;
     private String clientesCodigo;
     private String analistasCodigo;
@@ -30,15 +27,9 @@ public class Prestamos {
     private String prestamosEstado;
     private LocalDateTime prestamosFechaRegistro;
 
-    // =========================================================
-    // CONSTRUCTOR
-    // =========================================================
     public Prestamos() {
     }
 
-    // =========================================================
-    // GETTERS Y SETTERS
-    // =========================================================
     public String getPrestamosCodigo() {
         return prestamosCodigo;
     }

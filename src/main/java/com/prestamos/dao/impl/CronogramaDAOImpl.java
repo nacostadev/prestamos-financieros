@@ -29,7 +29,7 @@ public class CronogramaDAOImpl implements CronogramaDAO {
             cs.registerOutParameter(3, Types.CHAR);
 
             cs.execute();
-            
+
             String codigoGenerado = cs.getString(3);
             return codigoGenerado != null ? codigoGenerado.trim() : null;
         }
@@ -98,7 +98,7 @@ public class CronogramaDAOImpl implements CronogramaDAO {
             d.setDetalleAmortizacion(rs.getBigDecimal("Amortizacion"));
             d.setDetalleCuota(rs.getBigDecimal("Cuota"));
             d.setDetalleSaldoPendiente(rs.getBigDecimal("SaldoPendiente"));
-            
+
             lista.add(d);
         }
         return lista;

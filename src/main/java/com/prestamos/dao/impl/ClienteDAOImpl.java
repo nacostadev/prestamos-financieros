@@ -8,6 +8,7 @@ import com.prestamos.model.cliente.ReferenciasPersonales;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -84,6 +85,21 @@ public class ClienteDAOImpl implements ClienteDAO {
             cs.setString(3, motivo);
 
             cs.execute();
+        }
+    }
+
+    @Override
+    public boolean tienePrestamosActivos(String clientesCodigo) throws SQLException {
+        String sql = "SELECT 1 FROM Prestamo.Prestamos "
+                + "WHERE ClientesCodigo = ? AND EstadosPrestamoCodigo NOT IN ('EP02', 'EP05')";
+
+        try (Connection cn = ConexionBD.getConexion();
+             PreparedStatement ps = cn.prepareStatement(sql)) {
+
+            ps.setString(1, clientesCodigo);
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next();
+            }
         }
     }
 

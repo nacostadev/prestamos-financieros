@@ -29,12 +29,10 @@ public class CronogramaService {
         try {
             String codigoGenerado = cronogramaDAO.generar(prestamosCodigo.trim(), analistasCodigo.trim());
 
-            // Si la base de datos no retorna código, no cumple reglas como estado VIGENTE (RN-01)
             if (codigoGenerado == null || codigoGenerado.isBlank()) {
                 throw new BusinessRuleException("No se pudo generar el cronograma. Verifique que el préstamo se encuentre en estado VIGENTE.");
             }
 
-            // Validar consistencia financiera post-generación (CA-07)
             Cronogramas cronograma = cronogramaDAO.obtenerPorPrestamo(prestamosCodigo.trim());
             if (cronograma != null) {
                 validarConsistenciaCuotas(cronograma);
@@ -71,8 +69,8 @@ public class CronogramaService {
         List<DetalleCronograma> detalles = cronograma.getDetalle();
         if (detalles != null && !detalles.isEmpty()) {
             DetalleCronograma ultimaCuota = detalles.get(detalles.size() - 1);
-            // Verifica que la última cuota deje el saldo en 0.00
-            if (ultimaCuota.getDetalleSaldoPendiente() != null 
+
+            if (ultimaCuota.getDetalleSaldoPendiente() != null
                     && ultimaCuota.getDetalleSaldoPendiente().compareTo(new BigDecimal("0.05")) > 0) {
                 throw new BusinessRuleException("Advertencia de consistencia: El saldo final del cronograma generado no liquida a cero.");
             }

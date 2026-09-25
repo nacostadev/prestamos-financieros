@@ -15,6 +15,8 @@ public interface ClienteDAO {
 
     void desactivar(String clientesCodigo, String analistasCodigo, String motivo) throws SQLException;
 
+    boolean tienePrestamosActivos(String clientesCodigo) throws SQLException;
+
     List<Clientes> listar(String estado) throws SQLException;
 
     Clientes obtenerPorCodigo(String clientesCodigo) throws SQLException;

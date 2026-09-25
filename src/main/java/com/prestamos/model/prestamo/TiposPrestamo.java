@@ -2,10 +2,6 @@ package com.prestamos.model.prestamo;
 
 import java.math.BigDecimal;
 
-/**
- *
- * @author LENOVO
- */
 public class TiposPrestamo {
 
     private String tiposPrestamoCodigo;

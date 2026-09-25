@@ -1,9 +1,5 @@
 package com.prestamos.model.prestamo;
 
-/**
- *
- * @author LENOVO
- */
 public class Garantias {
 
     private String garantiasCodigo;

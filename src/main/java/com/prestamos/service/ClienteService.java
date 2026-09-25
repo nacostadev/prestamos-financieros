@@ -75,6 +75,10 @@ public class ClienteService {
 		validarTexto(analistaCodigo, "El analista que desactiva es obligatorio");
 		validarTexto(motivo, "El motivo de desactivación es obligatorio");
 		try {
+
+			if (clienteDAO.tienePrestamosActivos(codigo.trim())) {
+				throw new BusinessRuleException("No se puede desactivar el cliente: tiene préstamos financieros activos o en evaluación");
+			}
 			clienteDAO.desactivar(codigo.trim(), analistaCodigo.trim(), motivo.trim());
 		} catch (SQLException exception) {
 			throw new DataAccessException("No se pudo desactivar el cliente", exception);
@@ -160,4 +164,3 @@ public class ClienteService {
 		}
 	}
 }
-// hola estoy probando el proyect
