@@ -4,8 +4,12 @@ import com.prestamos.model.cronograma.Cronogramas;
 import java.sql.SQLException;
 
 public interface CronogramaDAO {
+    String generar(
+            String prestamosCodigo,
+            String analistasCodigo
+    ) throws SQLException;
 
-    String generar(String prestamosCodigo, String analistasCodigo) throws SQLException;
-
-    Cronogramas obtenerPorPrestamo(String prestamosCodigo) throws SQLException;
+    Cronogramas obtenerPorPrestamo(
+            String prestamosCodigo
+    ) throws SQLException;
 }
