@@ -64,7 +64,13 @@
             <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
-
+        
+        <!-- Diseño moderno para Java Swing -->
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>3.7.2</version>
+        </dependency>
     </dependencies>
 
     <build>
