@@ -42,7 +42,6 @@ public class CronogramaDAOImpl implements CronogramaDAO {
     }
 
     @Override
-    
     public Cronogramas obtenerPorPrestamo(String prestamosCodigo)
             throws SQLException {
 
@@ -77,79 +76,79 @@ public class CronogramaDAOImpl implements CronogramaDAO {
     }
 
     private Cronogramas mapearCabecera(ResultSet rs) throws SQLException {
-    Cronogramas cronograma = new Cronogramas();
+        Cronogramas cronograma = new Cronogramas();
 
-    cronograma.setCronogramasCodigo(
-            rs.getString("CronogramasCodigo")
-    );
-    cronograma.setPrestamosCodigo(
-            rs.getString("PrestamosCodigo")
-    );
-    cronograma.setCronogramasTEM(
-            rs.getBigDecimal("CronogramasTEM")
-    );
-    cronograma.setCronogramasCuotaFija(
-            rs.getBigDecimal("CronogramasCuotaFija")
-    );
-    cronograma.setCronogramasEstado(
-            rs.getString("CronogramasEstado")
-    );
-    cronograma.setAnalistasCodigoGenera(
-            rs.getString("AnalistasCodigoGenera")
-    );
-
-    Timestamp fecha = rs.getTimestamp("CronogramasFechaGeneracion");
-
-    cronograma.setCronogramasFechaGeneracion(
-            fecha != null ? fecha.toLocalDateTime() : null
-    );
-
-    return cronograma;
-}
-
-    private List<DetalleCronograma> mapearDetalles(ResultSet rs)
-        throws SQLException {
-
-    List<DetalleCronograma> detalles = new ArrayList<>();
-
-    while (rs.next()) {
-        DetalleCronograma detalle = new DetalleCronograma();
-
-        detalle.setDetalleCronogramaCodigo(
-                rs.getString("DetalleCronogramaCodigo")
-        );
-        detalle.setCronogramasCodigo(
+        cronograma.setCronogramasCodigo(
                 rs.getString("CronogramasCodigo")
         );
-        detalle.setDetalleNumeroCuota(
-                rs.getInt("NumeroCuota")
+        cronograma.setPrestamosCodigo(
+                rs.getString("PrestamosCodigo")
+        );
+        cronograma.setCronogramasTEM(
+                rs.getBigDecimal("CronogramasTEM")
+        );
+        cronograma.setCronogramasCuotaFija(
+                rs.getBigDecimal("CronogramasCuotaFija")
+        );
+        cronograma.setCronogramasEstado(
+                rs.getString("CronogramasEstado")
+        );
+        cronograma.setAnalistasCodigoGenera(
+                rs.getString("AnalistasCodigoGenera")
         );
 
-        Date fecha = rs.getDate("FechaVencimiento");
+        Timestamp fecha = rs.getTimestamp("CronogramasFechaGeneracion");
 
-        detalle.setDetalleFechaVencimiento(
-                fecha != null ? fecha.toLocalDate() : null
-        );
-
-        detalle.setDetalleSaldoAnterior(
-                rs.getBigDecimal("SaldoAnterior")
-        );
-        detalle.setDetalleInteres(
-                rs.getBigDecimal("Interes")
-        );
-        detalle.setDetalleAmortizacion(
-                rs.getBigDecimal("Amortizacion")
-        );
-        detalle.setDetalleCuota(
-                rs.getBigDecimal("Cuota")
-        );
-        detalle.setDetalleSaldoPendiente(
-                rs.getBigDecimal("SaldoPendiente")
+        cronograma.setCronogramasFechaGeneracion(
+                fecha != null ? fecha.toLocalDateTime() : null
         );
 
-        detalles.add(detalle);
+        return cronograma;
     }
 
-    return detalles;
-}
+    private List<DetalleCronograma> mapearDetalles(ResultSet rs)
+            throws SQLException {
+
+        List<DetalleCronograma> detalles = new ArrayList<>();
+
+        while (rs.next()) {
+            DetalleCronograma detalle = new DetalleCronograma();
+
+            detalle.setDetalleCronogramaCodigo(
+                    rs.getString("DetalleCronogramaCodigo")
+            );
+            detalle.setCronogramasCodigo(
+                    rs.getString("CronogramasCodigo")
+            );
+            detalle.setDetalleNumeroCuota(
+                    rs.getInt("NumeroCuota")
+            );
+
+            Date fecha = rs.getDate("FechaVencimiento");
+
+            detalle.setDetalleFechaVencimiento(
+                    fecha != null ? fecha.toLocalDate() : null
+            );
+
+            detalle.setDetalleSaldoAnterior(
+                    rs.getBigDecimal("SaldoAnterior")
+            );
+            detalle.setDetalleInteres(
+                    rs.getBigDecimal("Interes")
+            );
+            detalle.setDetalleAmortizacion(
+                    rs.getBigDecimal("Amortizacion")
+            );
+            detalle.setDetalleCuota(
+                    rs.getBigDecimal("Cuota")
+            );
+            detalle.setDetalleSaldoPendiente(
+                    rs.getBigDecimal("SaldoPendiente")
+            );
+
+            detalles.add(detalle);
+        }
+
+        return detalles;
+    }
 }
