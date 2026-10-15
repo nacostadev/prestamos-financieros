@@ -42,6 +42,7 @@ public class CronogramaDAOImpl implements CronogramaDAO {
     }
 
     @Override
+    
     public Cronogramas obtenerPorPrestamo(String prestamosCodigo)
             throws SQLException {
 
