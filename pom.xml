@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -32,6 +32,13 @@
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
             <version>13.4.0.jre11</version>
+        </dependency>
+
+        <!-- AbsoluteLayout de NetBeans -->
+        <dependency>
+            <groupId>unknown.binary</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>SNAPSHOT</version>
         </dependency>
 
         <!-- JUnit 5 para pruebas unitarias -->
@@ -82,5 +89,14 @@
 
         </plugins>
     </build>
+
+    <!-- Repositorio local para AbsoluteLayout -->
+    <repositories>
+        <repository>
+            <id>unknown-jars-temp-repo</id>
+            <name>Repositorio local de librerías NetBeans</name>
+            <url>file:${project.basedir}/lib</url>
+        </repository>
+    </repositories>
 
 </project>
