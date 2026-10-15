@@ -8,14 +8,14 @@ package com.prestamos.view.cliente;
  *
  * @author ACER
  */
-public class FrmClientes extends javax.swing.JFrame {
+public class FrmLogin extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmClientes.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmLogin.class.getName());
 
     /**
      * Creates new form FrmClientes
      */
-    public FrmClientes() {
+    public FrmLogin() {
         initComponents();
     }
 
@@ -136,7 +136,7 @@ public class FrmClientes extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrmClientes().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new FrmLogin().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
