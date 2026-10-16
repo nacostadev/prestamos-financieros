@@ -7,7 +7,6 @@ public class ReferenciasPersonales {
     private String referenciasPersonalesNombres;
     private String referenciasPersonalesTelefono;
     private String referenciasPersonalesRelacion;
-    private String referenciasPersonalesEstado;
 
     public ReferenciasPersonales() {
     }
@@ -16,15 +15,13 @@ public class ReferenciasPersonales {
                                  String clientesCodigo,
                                  String referenciasPersonalesNombres,
                                  String referenciasPersonalesTelefono,
-                                 String referenciasPersonalesRelacion,
-                                 String referenciasPersonalesEstado) {
+                                 String referenciasPersonalesRelacion) {
 
         this.referenciasPersonalesCodigo = referenciasPersonalesCodigo;
         this.clientesCodigo = clientesCodigo;
         this.referenciasPersonalesNombres = referenciasPersonalesNombres;
         this.referenciasPersonalesTelefono = referenciasPersonalesTelefono;
         this.referenciasPersonalesRelacion = referenciasPersonalesRelacion;
-        this.referenciasPersonalesEstado = referenciasPersonalesEstado;
     }
 
     public String getReferenciasPersonalesCodigo() {
@@ -65,13 +62,5 @@ public class ReferenciasPersonales {
 
     public void setReferenciasPersonalesRelacion(String referenciasPersonalesRelacion) {
         this.referenciasPersonalesRelacion = referenciasPersonalesRelacion;
-    }
-
-    public String getReferenciasPersonalesEstado() {
-        return referenciasPersonalesEstado;
-    }
-
-    public void setReferenciasPersonalesEstado(String referenciasPersonalesEstado) {
-        this.referenciasPersonalesEstado = referenciasPersonalesEstado;
     }
 }

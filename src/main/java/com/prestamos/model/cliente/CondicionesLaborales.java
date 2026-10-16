@@ -4,18 +4,15 @@ public class CondicionesLaborales {
 
     private String condicionesLaboralesCodigo;
     private String condicionesLaboralesNombre;
-    private String condicionesLaboralesEstado;
 
     public CondicionesLaborales() {
     }
 
     public CondicionesLaborales(String condicionesLaboralesCodigo,
-                                String condicionesLaboralesNombre,
-                                String condicionesLaboralesEstado) {
+                                String condicionesLaboralesNombre) {
 
         this.condicionesLaboralesCodigo = condicionesLaboralesCodigo;
         this.condicionesLaboralesNombre = condicionesLaboralesNombre;
-        this.condicionesLaboralesEstado = condicionesLaboralesEstado;
     }
 
     public String getCondicionesLaboralesCodigo() {
@@ -32,13 +29,5 @@ public class CondicionesLaborales {
 
     public void setCondicionesLaboralesNombre(String condicionesLaboralesNombre) {
         this.condicionesLaboralesNombre = condicionesLaboralesNombre;
-    }
-
-    public String getCondicionesLaboralesEstado() {
-        return condicionesLaboralesEstado;
-    }
-
-    public void setCondicionesLaboralesEstado(String condicionesLaboralesEstado) {
-        this.condicionesLaboralesEstado = condicionesLaboralesEstado;
     }
 }

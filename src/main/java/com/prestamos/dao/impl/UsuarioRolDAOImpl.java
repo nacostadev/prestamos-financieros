@@ -15,15 +15,15 @@ public class UsuarioRolDAOImpl implements UsuarioRolDAO {
 
     @Override
     public List<Roles> obtenerRolesPorUsuarioId(String usuarioCodigo) throws SQLException {
-        String sql = "SELECT r.RolesCodigo, r.RolesNombre, r.RolesDescripcion, "
-                + "r.RolesFechaCreacion, r.RolesEstado "
-                + "FROM Seguridad.DetalleRoles dr "
-                + "INNER JOIN Seguridad.Roles r ON r.RolesCodigo = dr.RolesCodigo "
-                + "WHERE dr.UsuariosCodigo = ? AND dr.DetallesRolesEstado = 'A' "
-                + "AND r.RolesEstado = 'A' ORDER BY r.RolesNombre";
+        String sql = "SELECT r.RolesCodigo, r.RolesNombre "
+                + "FROM Seguridad.Usuarios u "
+                + "INNER JOIN Seguridad.Roles r ON r.RolesCodigo = u.RolesCodigo "
+                + "WHERE u.UsuariosCodigo = ? AND u.UsuariosEstado = 'A' "
+                + "ORDER BY r.RolesNombre";
         List<Roles> roles = new ArrayList<>();
         try (Connection connection = ConexionBD.getConexion();
              PreparedStatement statement = connection.prepareStatement(sql)) {
+
             statement.setString(1, usuarioCodigo);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
@@ -38,10 +38,6 @@ public class UsuarioRolDAOImpl implements UsuarioRolDAO {
         Roles role = new Roles();
         role.setRolesCodigo(resultSet.getString("RolesCodigo"));
         role.setRolesNombre(resultSet.getString("RolesNombre"));
-        role.setRolesDescripcion(resultSet.getString("RolesDescripcion"));
-        java.sql.Date creationDate = resultSet.getDate("RolesFechaCreacion");
-        role.setRolesFechaCreacion(creationDate == null ? null : creationDate.toLocalDate());
-        role.setRolesEstado(resultSet.getString("RolesEstado"));
         return role;
     }
 }

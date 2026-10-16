@@ -2,7 +2,6 @@ package com.prestamos.model.cliente;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class Clientes {
@@ -10,10 +9,8 @@ public class Clientes {
     private String clientesCodigo;
     private String tiposDocumentoCodigo;
     private String clientesNumeroDocumento;
-    private String clientesPaterno;
-    private String clientesMaterno;
+    private String clientesApellidos;
     private String clientesNombres;
-    private String clientesNombreCompleto;
     private LocalDate clientesFechaNacimiento;
     private String estadosCivilesCodigo;
     private String clientesDireccion;
@@ -23,10 +20,10 @@ public class Clientes {
     private BigDecimal clientesNivelIngresos;
     private String clientesObservaciones;
     private String clientesEstado;
-    private String analistasCodigoRegistro;
-    private String analistasCodigoModifica;
-    private LocalDateTime clientesFechaRegistro;
-    private LocalDateTime clientesFechaActualizacion;
+    // Denominaciones de los catálogos, devueltas por Cliente.sp_ListarClientes
+    private String tiposDocumentoNombre;
+    private String estadosCivilesNombre;
+    private String condicionesLaboralesNombre;
     private Conyuges conyuge;
     private List<ReferenciasPersonales> referencias;
 
@@ -36,10 +33,8 @@ public class Clientes {
     public Clientes(String clientesCodigo,
                     String tiposDocumentoCodigo,
                     String clientesNumeroDocumento,
-                    String clientesPaterno,
-                    String clientesMaterno,
+                    String clientesApellidos,
                     String clientesNombres,
-                    String clientesNombreCompleto,
                     LocalDate clientesFechaNacimiento,
                     String estadosCivilesCodigo,
                     String clientesDireccion,
@@ -48,19 +43,13 @@ public class Clientes {
                     String condicionesLaboralesCodigo,
                     BigDecimal clientesNivelIngresos,
                     String clientesObservaciones,
-                    String clientesEstado,
-                    String analistasCodigoRegistro,
-                    String analistasCodigoModifica,
-                    LocalDateTime clientesFechaRegistro,
-                    LocalDateTime clientesFechaActualizacion) {
+                    String clientesEstado) {
 
         this.clientesCodigo = clientesCodigo;
         this.tiposDocumentoCodigo = tiposDocumentoCodigo;
         this.clientesNumeroDocumento = clientesNumeroDocumento;
-        this.clientesPaterno = clientesPaterno;
-        this.clientesMaterno = clientesMaterno;
+        this.clientesApellidos = clientesApellidos;
         this.clientesNombres = clientesNombres;
-        this.clientesNombreCompleto = clientesNombreCompleto;
         this.clientesFechaNacimiento = clientesFechaNacimiento;
         this.estadosCivilesCodigo = estadosCivilesCodigo;
         this.clientesDireccion = clientesDireccion;
@@ -70,10 +59,6 @@ public class Clientes {
         this.clientesNivelIngresos = clientesNivelIngresos;
         this.clientesObservaciones = clientesObservaciones;
         this.clientesEstado = clientesEstado;
-        this.analistasCodigoRegistro = analistasCodigoRegistro;
-        this.analistasCodigoModifica = analistasCodigoModifica;
-        this.clientesFechaRegistro = clientesFechaRegistro;
-        this.clientesFechaActualizacion = clientesFechaActualizacion;
     }
 
     public String getClientesCodigo() {
@@ -100,20 +85,12 @@ public class Clientes {
         this.clientesNumeroDocumento = clientesNumeroDocumento;
     }
 
-    public String getClientesPaterno() {
-        return clientesPaterno;
+    public String getClientesApellidos() {
+        return clientesApellidos;
     }
 
-    public void setClientesPaterno(String clientesPaterno) {
-        this.clientesPaterno = clientesPaterno;
-    }
-
-    public String getClientesMaterno() {
-        return clientesMaterno;
-    }
-
-    public void setClientesMaterno(String clientesMaterno) {
-        this.clientesMaterno = clientesMaterno;
+    public void setClientesApellidos(String clientesApellidos) {
+        this.clientesApellidos = clientesApellidos;
     }
 
     public String getClientesNombres() {
@@ -122,10 +99,6 @@ public class Clientes {
 
     public void setClientesNombres(String clientesNombres) {
         this.clientesNombres = clientesNombres;
-    }
-
-    public String getClientesNombreCompleto() {
-        return clientesNombreCompleto;
     }
 
     public LocalDate getClientesFechaNacimiento() {
@@ -200,38 +173,31 @@ public class Clientes {
         this.clientesEstado = clientesEstado;
     }
 
-    public String getAnalistasCodigoRegistro() {
-        return analistasCodigoRegistro;
+    public String getTiposDocumentoNombre() {
+        return tiposDocumentoNombre;
     }
 
-    public void setAnalistasCodigoRegistro(String analistasCodigoRegistro) {
-        this.analistasCodigoRegistro = analistasCodigoRegistro;
+    public void setTiposDocumentoNombre(String tiposDocumentoNombre) {
+        this.tiposDocumentoNombre = tiposDocumentoNombre;
     }
 
-    public String getAnalistasCodigoModifica() {
-        return analistasCodigoModifica;
+    public String getEstadosCivilesNombre() {
+        return estadosCivilesNombre;
     }
 
-    public void setAnalistasCodigoModifica(String analistasCodigoModifica) {
-        this.analistasCodigoModifica = analistasCodigoModifica;
+    public void setEstadosCivilesNombre(String estadosCivilesNombre) {
+        this.estadosCivilesNombre = estadosCivilesNombre;
     }
 
-    public LocalDateTime getClientesFechaRegistro() {
-        return clientesFechaRegistro;
+    public String getCondicionesLaboralesNombre() {
+        return condicionesLaboralesNombre;
     }
 
-    public void setClientesFechaRegistro(LocalDateTime clientesFechaRegistro) {
-        this.clientesFechaRegistro = clientesFechaRegistro;
+    public void setCondicionesLaboralesNombre(String condicionesLaboralesNombre) {
+        this.condicionesLaboralesNombre = condicionesLaboralesNombre;
     }
 
-    public LocalDateTime getClientesFechaActualizacion() {
-        return clientesFechaActualizacion;
-    }
-
-    public void setClientesFechaActualizacion(LocalDateTime clientesFechaActualizacion) {
-        this.clientesFechaActualizacion = clientesFechaActualizacion;
-    }
-        public Conyuges getConyuge() {
+    public Conyuges getConyuge() {
         return conyuge;
     }
 

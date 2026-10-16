@@ -4,24 +4,27 @@ public class Usuarios {
 
     private String usuariosCodigo;
     private String usuariosNombre;
-    private byte[] usuariosContrasenia;
+    private String usuariosContrasenia;
     private String usuariosEstado;
     private String analistasCodigo;
+    private String rolesCodigo;
 
     public Usuarios() {
     }
 
     public Usuarios(String usuariosCodigo,
                     String usuariosNombre,
-                    byte[] usuariosContrasenia,
+                    String usuariosContrasenia,
                     String usuariosEstado,
-                    String analistasCodigo) {
+                    String analistasCodigo,
+                    String rolesCodigo) {
 
         this.usuariosCodigo = usuariosCodigo;
         this.usuariosNombre = usuariosNombre;
         this.usuariosContrasenia = usuariosContrasenia;
         this.usuariosEstado = usuariosEstado;
         this.analistasCodigo = analistasCodigo;
+        this.rolesCodigo = rolesCodigo;
     }
 
     public String getUsuariosCodigo() {
@@ -40,11 +43,11 @@ public class Usuarios {
         this.usuariosNombre = usuariosNombre;
     }
 
-    public byte[] getUsuariosContrasenia() {
+    public String getUsuariosContrasenia() {
         return usuariosContrasenia;
     }
 
-    public void setUsuariosContrasenia(byte[] usuariosContrasenia) {
+    public void setUsuariosContrasenia(String usuariosContrasenia) {
         this.usuariosContrasenia = usuariosContrasenia;
     }
 
@@ -62,5 +65,13 @@ public class Usuarios {
 
     public void setAnalistasCodigo(String analistasCodigo) {
         this.analistasCodigo = analistasCodigo;
+    }
+
+    public String getRolesCodigo() {
+        return rolesCodigo;
+    }
+
+    public void setRolesCodigo(String rolesCodigo) {
+        this.rolesCodigo = rolesCodigo;
     }
 }

@@ -4,18 +4,14 @@ public class TiposDocumento {
 
     private String tiposDocumentoCodigo;
     private String tiposDocumentoNombre;
-    private String tiposDocumentoEstado;
 
     public TiposDocumento() {
     }
 
-    public TiposDocumento(String tiposDocumentoCodigo,
-                          String tiposDocumentoNombre,
-                          String tiposDocumentoEstado) {
+    public TiposDocumento(String tiposDocumentoCodigo, String tiposDocumentoNombre) {
 
         this.tiposDocumentoCodigo = tiposDocumentoCodigo;
         this.tiposDocumentoNombre = tiposDocumentoNombre;
-        this.tiposDocumentoEstado = tiposDocumentoEstado;
     }
 
     public String getTiposDocumentoCodigo() {
@@ -32,13 +28,5 @@ public class TiposDocumento {
 
     public void setTiposDocumentoNombre(String tiposDocumentoNombre) {
         this.tiposDocumentoNombre = tiposDocumentoNombre;
-    }
-
-    public String getTiposDocumentoEstado() {
-        return tiposDocumentoEstado;
-    }
-
-    public void setTiposDocumentoEstado(String tiposDocumentoEstado) {
-        this.tiposDocumentoEstado = tiposDocumentoEstado;
     }
 }

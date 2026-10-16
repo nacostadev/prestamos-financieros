@@ -14,8 +14,7 @@ import java.util.List;
 public class AnalistasDAOImpl implements AnalistasDAO {
 
     private static final String SQL_COLUMNAS =
-        "AnalistasCodigo, AnalistasPaterno, AnalistasMaterno, AnalistasNombres, "
-      + "AnalistasNombreCompleto, AnalistasDNI, AnalistasCorreo, AnalistasTelefono, AnalistasEstado ";
+        "AnalistasCodigo, AnalistasApellidos, AnalistasNombres ";
 
     @Override
     public Analistas obtenerPorCodigo(String analistasCodigo) throws SQLException {
@@ -38,7 +37,7 @@ public class AnalistasDAOImpl implements AnalistasDAO {
     public List<Analistas> listar() throws SQLException {
         List<Analistas> lista = new ArrayList<>();
         String sql = "SELECT " + SQL_COLUMNAS
-                   + "FROM Personal.Analistas ORDER BY AnalistasPaterno, AnalistasMaterno";
+                   + "FROM Personal.Analistas ORDER BY AnalistasApellidos, AnalistasNombres";
 
         try (Connection cn = ConexionBD.getConexion();
              PreparedStatement ps = cn.prepareStatement(sql);
@@ -55,8 +54,7 @@ public class AnalistasDAOImpl implements AnalistasDAO {
     public List<Analistas> listarActivos() throws SQLException {
         List<Analistas> lista = new ArrayList<>();
         String sql = "SELECT " + SQL_COLUMNAS
-                   + "FROM Personal.Analistas WHERE AnalistasEstado = 'A' "
-                   + "ORDER BY AnalistasPaterno, AnalistasMaterno";
+                   + "FROM Personal.Analistas ORDER BY AnalistasApellidos, AnalistasNombres";
 
         try (Connection cn = ConexionBD.getConexion();
              PreparedStatement ps = cn.prepareStatement(sql);
@@ -72,13 +70,8 @@ public class AnalistasDAOImpl implements AnalistasDAO {
     private Analistas mapearAnalista(ResultSet rs) throws SQLException {
         Analistas a = new Analistas();
         a.setAnalistasCodigo(rs.getString("AnalistasCodigo"));
-        a.setAnalistasPaterno(rs.getString("AnalistasPaterno"));
-        a.setAnalistasMaterno(rs.getString("AnalistasMaterno"));
+        a.setAnalistasApellidos(rs.getString("AnalistasApellidos"));
         a.setAnalistasNombres(rs.getString("AnalistasNombres"));
-        a.setAnalistasDNI(rs.getString("AnalistasDNI"));
-        a.setAnalistasCorreo(rs.getString("AnalistasCorreo"));
-        a.setAnalistasTelefono(rs.getString("AnalistasTelefono"));
-        a.setAnalistasEstado(rs.getString("AnalistasEstado"));
         return a;
     }
 }
