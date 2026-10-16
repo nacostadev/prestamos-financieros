@@ -4,33 +4,24 @@ public class Conyuges {
 
     private String conyugesCodigo;
     private String clientesCodigo;
-    private String conyugesPaterno;
-    private String conyugesMaterno;
+    private String conyugesApellidos;
     private String conyugesNombres;
-    private String conyugesNombreCompleto;
     private String conyugesTelefono;
-    private String conyugesEstado;
 
     public Conyuges() {
     }
 
     public Conyuges(String conyugesCodigo,
                     String clientesCodigo,
-                    String conyugesPaterno,
-                    String conyugesMaterno,
+                    String conyugesApellidos,
                     String conyugesNombres,
-                    String conyugesNombreCompleto,
-                    String conyugesTelefono,
-                    String conyugesEstado) {
+                    String conyugesTelefono) {
 
         this.conyugesCodigo = conyugesCodigo;
         this.clientesCodigo = clientesCodigo;
-        this.conyugesPaterno = conyugesPaterno;
-        this.conyugesMaterno = conyugesMaterno;
+        this.conyugesApellidos = conyugesApellidos;
         this.conyugesNombres = conyugesNombres;
-        this.conyugesNombreCompleto = conyugesNombreCompleto;
         this.conyugesTelefono = conyugesTelefono;
-        this.conyugesEstado = conyugesEstado;
     }
 
     public String getConyugesCodigo() {
@@ -49,20 +40,12 @@ public class Conyuges {
         this.clientesCodigo = clientesCodigo;
     }
 
-    public String getConyugesPaterno() {
-        return conyugesPaterno;
+    public String getConyugesApellidos() {
+        return conyugesApellidos;
     }
 
-    public void setConyugesPaterno(String conyugesPaterno) {
-        this.conyugesPaterno = conyugesPaterno;
-    }
-
-    public String getConyugesMaterno() {
-        return conyugesMaterno;
-    }
-
-    public void setConyugesMaterno(String conyugesMaterno) {
-        this.conyugesMaterno = conyugesMaterno;
+    public void setConyugesApellidos(String conyugesApellidos) {
+        this.conyugesApellidos = conyugesApellidos;
     }
 
     public String getConyugesNombres() {
@@ -73,23 +56,11 @@ public class Conyuges {
         this.conyugesNombres = conyugesNombres;
     }
 
-    public String getConyugesNombreCompleto() {
-        return conyugesNombreCompleto;
-    }
-
     public String getConyugesTelefono() {
         return conyugesTelefono;
     }
 
     public void setConyugesTelefono(String conyugesTelefono) {
         this.conyugesTelefono = conyugesTelefono;
-    }
-
-    public String getConyugesEstado() {
-        return conyugesEstado;
-    }
-
-    public void setConyugesEstado(String conyugesEstado) {
-        this.conyugesEstado = conyugesEstado;
     }
 }

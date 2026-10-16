@@ -11,9 +11,8 @@ import java.sql.SQLException;
 
 public class UsuariosDAOImpl implements UsuariosDAO {
 
-        private static final String CLAVE_ENCRIPTACION = "ClaveUsuarios";
-        private static final String COLUMNAS_USUARIO = "UsuariosCodigo, UsuariosNombre, "
-            + "UsuariosEstado, AnalistasCodigo";
+    private static final String COLUMNAS_USUARIO = "UsuariosCodigo, UsuariosNombre, "
+            + "UsuariosEstado, AnalistasCodigo, RolesCodigo";
 
     @Override
     public Usuarios buscarPorNombre(String usuariosNombre) throws SQLException {
@@ -39,6 +38,7 @@ public class UsuariosDAOImpl implements UsuariosDAO {
                     u.setUsuariosNombre(rs.getString("UsuariosNombre"));
                     u.setUsuariosEstado(rs.getString("UsuariosEstado"));
                     u.setAnalistasCodigo(rs.getString("AnalistasCodigo"));
+                    u.setRolesCodigo(rs.getString("RolesCodigo"));
                     return u;
                 }
             }
@@ -50,12 +50,12 @@ public class UsuariosDAOImpl implements UsuariosDAO {
     public boolean validarCredenciales(String usuariosNombre, String contrasenia) throws SQLException {
         String sql = "SELECT 1 FROM Seguridad.Usuarios "
                 + "WHERE UsuariosNombre = ? AND UsuariosEstado = 'A' "
-                + "AND CONVERT(NVARCHAR(100), DecryptByPassPhrase(?, UsuariosContrasenia)) = ?";
+                + "AND UsuariosContrasenia = ?";
         try (Connection cn = ConexionBD.getConexion();
              PreparedStatement ps = cn.prepareStatement(sql)) {
+
             ps.setString(1, usuariosNombre);
-            ps.setString(2, CLAVE_ENCRIPTACION);
-            ps.setString(3, contrasenia);
+            ps.setString(2, contrasenia);
             try (ResultSet rs = ps.executeQuery()) {
                 return rs.next();
             }
@@ -64,18 +64,16 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 
     @Override
     public boolean esAnalistaCreditoActivo(String analistasCodigo) throws SQLException {
-        String sql = "SELECT Seguridad.fn_EsAnalistaCreditoActivo(?) AS Resultado";
+        String sql = "SELECT 1 FROM Seguridad.Usuarios "
+                + "WHERE AnalistasCodigo = ? AND UsuariosEstado = 'A'";
 
         try (Connection cn = ConexionBD.getConexion();
              PreparedStatement ps = cn.prepareStatement(sql)) {
 
             ps.setString(1, analistasCodigo);
             try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    return rs.getBoolean("Resultado");
-                }
+                return rs.next();
             }
         }
-        return false;
     }
 }
