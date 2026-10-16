@@ -13,9 +13,9 @@ import javax.swing.UIManager;
  * Vista de Registro de Préstamo Financiero
  * @author ernes
  */
-public class Prestamo extends javax.swing.JFrame {
+public class FrmPrestamo extends javax.swing.JFrame {
 
-    public Prestamo() {
+    public FrmPrestamo() {
         initComponents(); // Método generado automáticamente por NetBeans
         this.setLocationRelativeTo(null); // Centrar la ventana en pantalla
         cargarCombosEstaticos(); // Carga de opciones iniciales
@@ -556,11 +556,11 @@ limpiarFormulario();
                 }
             }
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(Prestamo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPrestamo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         java.awt.EventQueue.invokeLater(() -> {
-            new Prestamo().setVisible(true);
+            new FrmPrestamo().setVisible(true);
         });
     }//GEN-LAST:event_btnCancelarActionPerformed
 
